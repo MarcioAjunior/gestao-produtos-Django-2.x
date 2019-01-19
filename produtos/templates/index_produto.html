@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Listage de produtos{% endblock %}
+
+{% block main %}
+<ul>
+    <h3>Listagem dos produtos</h3>
+        {% for p in prod %}
+
+        <div class="container">
+                <div class="row">
+                        <div class="col-2">
+                                <a href="{% url 'product_update' p.id %}">{{ p.nome_produto }} </a>
+                          </div>
+                          <div class="col-2 ">
+                                <a href="{% url 'product_delete' p.id %}" class="trash-item">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                   </a>
+                          </div>          
+                </div>
+              </div>
+
+       {% endfor %}
+       <br>
+       <a href="{% url 'product_new'  %}">Novo Produto</a>
+      </ul>
+
+{% endblock %}
+
+
+      
